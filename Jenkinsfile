@@ -5,7 +5,7 @@ node("master"){
 	
 	stage('commitid'){
         sh "ls -la"
-	sh "echo %GIT_COMMIT%"
+	sh "echo ${GIT_COMMIT}"
 	}
 	
 	stage('Triggering CD Pipeline'){
