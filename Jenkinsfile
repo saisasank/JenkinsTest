@@ -3,10 +3,14 @@ node("master"){
 		cleanWs()
 	}
 	
+	stage('Code Checkout'){
+		checkout([$class: 'GitSCM', branches: [[name: "${BRANCH}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "https://github.com/saisasank/JenkinsTest"]]])
+	}
+	
 	stage('commitid'){
-        sh "ls -la"
-	GIT_COMMIT_HASH = sh (script: "git log -n 1 --pretty=format:'%H'", returnStdout: true)
-	sh "echo ${GIT_COMMIT_HASH}"
+		sh "ls -la"
+		GIT_COMMIT_HASH = sh (script: "git log -n 1 --pretty=format:'%H'", returnStdout: true)
+		sh "echo ${GIT_COMMIT_HASH}"
 	}
 	
 	stage('Triggering CD Pipeline'){
