@@ -5,7 +5,8 @@ node("master"){
 	
 	stage('commitid'){
         sh "ls -la"
-	sh "echo ${GIT_COMMIT}"
+	GIT_COMMIT_HASH = sh (script: "git log -n 1 --pretty=format:'%H'", returnStdout: true)
+	sh "echo ${GIT_COMMIT_HASH}"
 	}
 	
 	stage('Triggering CD Pipeline'){
