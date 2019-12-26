@@ -4,7 +4,7 @@ node("master"){
 	}
 	
 	stage('Code Checkout'){
-		checkout([$class: 'GitSCM', branches: [[name: "${BRANCH}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "https://github.com/saisasank/JenkinsTest"]]])
+		checkout([$class: 'GitSCM', branches: [[name: "master"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "https://github.com/saisasank/JenkinsTest"]]])
 	}
 	
 	stage('commitid'){
