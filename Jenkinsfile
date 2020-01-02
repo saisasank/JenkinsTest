@@ -18,9 +18,9 @@ node("master"){
 	
 	stage('branchlist'){
 		
-echo “Initializing workflow”
+sh "echo 'Initializing workflow'"
 //checkout code
-echo GITHUB_PROJECT
+sh "echo ${GITHUB_PROJECT}"
 git url: GITHUB_PROJECT, credentialsId: GITHUB_CREDENTIALS_ID
 sh 'git branch -r | awk \'{print $1}\' ORS=\'\\n\' >branches.txt'
 sh "'cut -d '/' -f 2 branches.txt > branch.txt'"
