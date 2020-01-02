@@ -43,9 +43,6 @@ url: 'https://github.com/saisasank/JenkinsTest'
 sh “ls -lat”
 }
 		
-		
-		
-	}
 	
 	stage('Triggering CD Pipeline'){
 		build job: 'JenkinsDownTest', parameters: [[$class: 'StringParameterValue', name: 'COMMIT', value: "${GIT_COMMIT_HASH}"]]
