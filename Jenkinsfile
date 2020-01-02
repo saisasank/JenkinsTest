@@ -26,7 +26,7 @@ sh 'git branch -r | awk \'{print $1}\' ORS=\'\\n\' > branches.txt'
 sh "cat branches.txt"
 sh "pwd"
 sh "ls -la"
-sh "'cut -d '/' -f2- branches.txt > branch.txt'"
+sh "'cut -d '/' -f2- branches.txt'"
 //sh “sed s’/origin”\’///g branches.txt > branch.tx”
 //sed ‘s/$/from S0 to S1/’
 }
