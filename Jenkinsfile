@@ -21,18 +21,19 @@ node("master"){
 		env.BRANCH_SCOPE = input message: 'Please choose the branch to build ', ok: 'Validate!',
 			parameters: [choice(name: 'BRANCH_NAME', choices: "${liste}", description: 'Branch to build?')]
 	}
-	stage('Checkout external proj') {
+/*	stage('Checkout external proj') {
 		echo "${env.BRANCH_SCOPE}"
 		git branch: "${env.BRANCH_SCOPE}",
 			credentialsId: 'Telcel',
 			url: 'https://github.com/saisasank/JenkinsTest'
 		sh “ls -lat”
-	}
+	}*/
 	stage('Clean Workspace'){
 		cleanWs()
 	}
 	stage('Code Checkout'){
-		checkout([$class: 'GitSCM', branches: [[name: "master"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "https://github.com/saisasank/JenkinsTest"]]])
+		echo "${env.BRANCH_SCOPE}"
+		checkout([$class: 'GitSCM', branches: [[name: "${env.BRANCH_SCOPE}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "https://github.com/saisasank/JenkinsTest"]]])
 	}
 	stage('commitid'){
 		sh "ls -la"
