@@ -42,6 +42,5 @@ node("master"){
 	stage('Triggering CD Pipeline'){
 		build job: 'JenkinsDownTest', parameters: [[$class: 'StringParameterValue', name: 'COMMIT', value: "${GIT_COMMIT_HASH}"]]
 	}
-}}
 }
 
