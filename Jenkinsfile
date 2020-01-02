@@ -1,5 +1,5 @@
-GITHUB_PROJECT = “https://github.com/saisasank/JenkinsTest”
-GITHUB_BRANCH = ‘${env.BRANCH_NAME}’
+GITHUB_PROJECT = "https://github.com/saisasank/JenkinsTest"
+GITHUB_BRANCH = '${env.BRANCH_NAME}'
 
 node("master"){
 	stage('Clean Workspace'){
